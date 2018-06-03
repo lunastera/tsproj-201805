@@ -1,18 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DEV_PORT = 3000
 
 module.exports = {
-  entry: [__dirname + '/src/index.ts'],
+  entry: [__dirname + '/src/assets/ts/index.ts'],
   output: {
-    path: __dirname + '/public/js',
+    path: __dirname + '/public',
     filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
   devServer: {
-    contentBase: 'public',
+    contentBase: 'src',
     publicPath: '/',
-    port: 3000,
+    port: DEV_PORT,
     watchContentBase: true,
     historyApiFallback: true
   },
@@ -37,7 +38,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'src/index.html'
     })
   ]
 }
